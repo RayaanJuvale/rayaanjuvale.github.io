@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Pay Disparity Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .dashboard-header h1 {
+            font-size: 2em;
+            font-weight: 600;
+        }
+        
+        .dashboard-header p {
+            margin-top: 5px;
+            opacity: 0.95;
+        }
+        
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: calc(100vh - 100px);
+        }
+        
+        .dashboard-panel {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .panel-title {
+            font-size: 1.4em;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 600;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .chart-container {
+            width: 100%;
+            height: 500px;
+        }
+        
+        .insights-section {
+            margin-bottom: 25px;
+        }
+        
+        .insights-section h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .insight-item {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+        
+        .insight-item strong {
+            color: #667eea;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .ranking-list {
+            list-style: none;
+            counter-reset: ranking;
+        }
+        
+        .ranking-list li {
+            counter-increment: ranking;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .ranking-list li::before {
+            content: counter(ranking);
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .gap-amount {
+            color: #f5576c;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        @media (max-width: 1024px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-header">
+        <h1>📊 Gender Pay Disparity Analysis Dashboard</h1>
+        <p>Comprehensive analysis of gender-based pay differences across departments</p>
+    </div>
+    
+    <div class="dashboard-container">
+        <!-- Left Column: Main Chart -->
+        <div class="dashboard-panel">
+            <h2 class="panel-title">Base Pay Disparity by Department</h2>
+            <div id="payGapChart" class="chart-container"></div>
+        </div>
+        
+        <!-- Right Column: Insights and Stats -->
+        <div class="dashboard-panel">
+            <h2 class="panel-title">Key Findings</h2>
+            
+            <div class="insights-section">
+                <h3>📈 Main Insights</h3>
+                <div class="insight-item">
+                    <strong>Overall Gap:</strong> Men earn an average of <strong>$8,304 more</strong> than women across all departments, even after controlling for education, age, and seniority.
+                </div>
+                <div class="insight-item">
+                    <strong>Engineering Department:</strong> Shows the largest disparity with men earning approximately <strong>$10,658 more</strong> than women on average.
+                </div>
+                <div class="insight-item">
+                    <strong>Statistical Significance:</strong> The regression model explains <strong>65.8%</strong> of variance in base pay, with gender being a highly significant predictor (p < 0.001).
+                </div>
+            </div>
+            
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-value">$8,304</div>
+                    <div class="stat-label">Average Pay Gap</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">65.8%</div>
+                    <div class="stat-label">Model R-squared</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1,000</div>
+                    <div class="stat-label">Employee Records</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Departments Analyzed</div>
+                </div>
+            </div>
+            
+            <div class="insights-section" style="margin-top: 25px;">
+                <h3>🏆 Department Rankings</h3>
+                <ul class="ranking-list">
+                    <li>
+                        <span>Engineering</span>
+                        <span class="gap-amount">$10,658</span>
+                    </li>
+                    <li>
+                        <span>Sales</span>
+                        <span class="gap-amount">$9,482</span>
+                    </li>
+                    <li>
+                        <span>Administration</span>
+                        <span class="gap-amount">$9,099</span>
+                    </li>
+                    <li>
+                        <span>Management</span>
+                        <span class="gap-amount">$6,803</span>
+                    </li>
+                    <li>
+                        <span>Operations</span>
+                        <span class="gap-amount">$6,662</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="insights-section">
+                <h3>🔬 Methodology</h3>
+                <p style="font-size: 0.95em; line-height: 1.6; color: #666;">
+                    This analysis uses multiple linear regression controlling for age, education level (High School to PhD), 
+                    seniority (levels 1-5), and department-specific interactions. The dataset contains balanced representation 
+                    across departments (~200 employees each) with performance evaluations included.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Data for the chart
+        const departments = ['Operations', 'Management', 'Administration', 'Sales', 'Engineering'];
+        const payGaps = [6662.3, 6803.3, 9098.9, 9482.4, 10658];
+        
+        // Create the horizontal bar chart
+        const trace = {
+            x: payGaps,
+            y: departments,
+            type: 'bar',
+            orientation: 'h',
+            marker: {
+                color: ['#667eea', '#667eea', '#667eea', '#667eea', '#667eea'],
+                line: {
+                    color: '#764ba2',
+                    width: 2
+                }
+            },
+            text: payGaps.map(val => '$' + val.toLocaleString()),
+            textposition: 'outside',
+            textfont: {
+                size: 14,
+                color: '#333',
+                family: 'Segoe UI, sans-serif',
+                weight: 'bold'
+            },
+            hovertemplate: '<b>%{y}</b><br>Pay Gap: $%{x:,.0f}<extra></extra>'
+        };
+        
+        const layout = {
+            title: {
+                text: 'Average Base Pay Gap (Male - Female) by Department',
+                font: {
+                    size: 18,
+                    color: '#667eea',
+                    family: 'Segoe UI, sans-serif',
+                    weight: 'bold'
+                }
+            },
+            xaxis: {
+                title: 'Pay Gap ($)',
+                titlefont: {
+                    size: 14,
+                    color: '#333'
+                },
+                gridcolor: '#e0e0e0',
+                tickformat: '$,.0f'
+            },
+            yaxis: {
+                title: '',
+                titlefont: {
+                    size: 14,
+                    color: '#333'
+                }
+            },
+            margin: {
+                l: 120,
+                r: 100,
+                t: 80,
+                b: 60
+            },
+            plot_bgcolor: 'white',
+            paper_bgcolor: 'white',
+            font: {
+                family: 'Segoe UI, sans-serif',
+                size: 12
+            },
+            annotations: [{
+                text: 'Data source: Glassdoor Gender Pay Gap Dataset',
+                xref: 'paper',
+                yref: 'paper',
+                x: 0.5,
+                y: -0.15,
+                showarrow: false,
+                font: {
+                    size: 11,
+                    color: '#999'
+                }
+            }]
+        };
+        
+        const config = {
+            responsive: true,
+            displayModeBar: true,
+            displaylogo: false,
+            modeBarButtonsToRemove: ['pan2d', 'lasso2d', 'select2d']
+        };
+        
+        Plotly.newPlot('payGapChart', [trace], layout, config);
+    </script>
+</body>
+</html>

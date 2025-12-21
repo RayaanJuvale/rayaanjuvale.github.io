@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayaan Juvale - Data Scientist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #667eea;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        nav {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+        
+        .content h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .content p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+        
+        .education, .skills {
+            margin-top: 30px;
+        }
+        
+        .education h3, .skills h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .degree {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .degree h4 {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .degree p {
+            margin: 5px 0;
+            font-size: 0.95em;
+        }
+        
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #764ba2;
+        }
+        
+        .skill-category h4 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .skill-category p {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="Rayaan_Juvale__3_of_11_.jpg" alt="Rayaan Juvale" class="profile-img">
+            <h1>Rayaan Juvale</h1>
+            <p class="subtitle">Data Scientist | Machine Learning Enthusiast | Problem Solver</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>rayaanjuvale@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>+1 (413) 275-6533</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Amherst, MA</span>
+                </div>
+            </div>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">About Me</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="https://github.com/rayaanjuvale">GitHub</a></li>
+                <li><a href="https://linkedin.com/in/rayaan-juvale">LinkedIn</a></li>
+            </ul>
+        </nav>
+        
+        <div class="content">
+            <h2>About Me</h2>
+            
+            <p>Hello! I'm Rayaan Juvale, a passionate data scientist currently pursuing my Master of Science in Data Science at the University of Massachusetts Amherst, with an expected graduation in May 2026. My journey in data science is driven by a deep curiosity about how data can transform decision-making and solve real-world problems across various domains.</p>
+            
+            <p>I completed my Bachelor of Engineering in Electronics and Telecommunication from the University of Mumbai in May 2024, where I developed a strong foundation in technical problem-solving and analytical thinking. Throughout my academic and professional journey, I have cultivated expertise in machine learning, data engineering, and quantitative analysis, consistently applying these skills to create impactful solutions.</p>
+            
+            <p>My professional experience spans multiple roles where I've demonstrated the ability to bridge technical complexity with business value. As a Data Intern at UMass Amherst, I analyze extensive food waste data and purchasing patterns, developing insights that drive sustainability efforts and cost optimization. Previously, as a Software Developer Intern at HDFC ERGO General Insurance Company, I enhanced web application performance and optimized database operations for large-scale confidential datasets. My internship at Clairvoyant Software Technologies allowed me to refine my skills in predictive modeling and data visualization, improving forecasting accuracy and stakeholder communication.</p>
+            
+            <p>Beyond traditional internships, I served as a Programmer and Data Team Member for the DJS Skylark Aero Modelling Team, where I engineered fixed-wing aircraft and conducted complex simulations that led to a third-place finish globally in the SAE Aero Design competition. This experience taught me the importance of precision, teamwork, and innovative problem-solving under pressure.</p>
+            
+            <p>I am proficient in programming languages including Python, R, C++, C#, JavaScript, and MATLAB, with extensive experience in libraries and frameworks such as NumPy, Pandas, Matplotlib, PyTorch, TensorFlow, and various data visualization tools. My technical toolkit enables me to tackle diverse challenges, from building ETL pipelines and containerized applications to developing interactive dashboards and implementing machine learning models.</p>
+            
+            <p>What drives me is the opportunity to extract meaningful insights from complex datasets and translate them into actionable strategies. Whether it's analyzing gender pay disparities, engineering data pipelines for Reddit data, or optimizing aircraft performance through computational analysis, I approach each project with rigor, creativity, and a commitment to excellence. I am always eager to learn new technologies and methodologies that can enhance my ability to deliver data-driven solutions.</p>
+            
+            <div class="education">
+                <h3>Education</h3>
+                
+                <div class="degree">
+                    <h4>Master of Science in Data Science</h4>
+                    <p><strong>University of Massachusetts Amherst</strong></p>
+                    <p>Expected Graduation: May 2026</p>
+                    <p><em>Relevant Coursework:</em> Data Science Fundamentals, Intro to Quantitative Analysis, Data Engineering, Machine Learning</p>
+                </div>
+                
+                <div class="degree">
+                    <h4>Bachelor of Engineering in Electronics and Telecommunication</h4>
+                    <p><strong>University of Mumbai</strong></p>
+                    <p>Graduated: May 2024</p>
+                    <p><em>Relevant Coursework:</em> Neural Networks and Fuzzy Logic, Object Oriented Programming, Python Programming, Corporate Finance Management</p>
+                </div>
+            </div>
+            
+            <div class="skills">
+                <h3>Technical Skills</h3>
+                
+                <div class="skills-list">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <p>Python, R, C++, C#, JavaScript, MATLAB</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Data Science & ML</h4>
+                        <p>NumPy, Pandas, Matplotlib, PyTorch, TensorFlow, Scikit-learn</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Data Visualization</h4>
+                        <p>Power BI, Tableau, Streamlit, ggplot2</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Tools & Technologies</h4>
+                        <p>Docker, SQL, PostgreSQL, Git, Linux</p>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Software & Design</h4>
+                        <p>SolidWorks, ASP.NET MVC, Web Development</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="Rayaan_resume.pdf" class="download-btn" download>📄 Download My Resume</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2024 Rayaan Juvale. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

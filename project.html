@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Rayaan Juvale</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            background: white;
+            border-radius: 15px;
+            padding: 30px 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        nav {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid #667eea;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .project-card h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        .project-card .description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .project-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.9em;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-dashboard {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+        }
+        
+        .btn-dashboard:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(245, 87, 108, 0.6);
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .tech-tag {
+            background: #f8f9fa;
+            color: #667eea;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Projects</h1>
+            <p class="subtitle">Explore my data science and engineering projects</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">About Me</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="https://github.com/rayaanjuvale">GitHub</a></li>
+                <li><a href="https://linkedin.com/in/rayaan-juvale">LinkedIn</a></li>
+            </ul>
+        </nav>
+        
+        <div class="projects-grid">
+            <!-- Project 1: Gender Pay Disparity Analysis -->
+            <div class="project-card">
+                <h2>🔍 Gender Pay Disparity Analysis</h2>
+                <p class="description">
+                    Led a comprehensive statistical analysis of gender-based pay disparities using a Glassdoor dataset containing employee-level data. 
+                    Identified an average base pay gap of $8,304 between men and women across different departments. Developed and deployed a multiple 
+                    regression model that achieved 65.8% variance explanation in base pay through factors including gender, education, seniority, and 
+                    department. The analysis revealed department-specific patterns, with Engineering showing the largest pay gap while some departments 
+                    showed mixed bonus patterns. Created visualizations using R and ggplot2 to effectively communicate findings and provide actionable 
+                    insights for reducing workplace disparities.
+                </p>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">R</span>
+                    <span class="tech-tag">ggplot2</span>
+                    <span class="tech-tag">Statistical Analysis</span>
+                    <span class="tech-tag">Linear Regression</span>
+                    <span class="tech-tag">Data Visualization</span>
+                </div>
+                
+                <div class="project-links">
+                    <a href="dashboard.html" class="project-btn btn-dashboard">📊 View Dashboard</a>
+                    <a href="603_final_project_Rayaan.pdf" class="project-btn btn-primary" download>📄 Full Report</a>
+                    <a href="https://github.com/rayaanjuvale/gender-pay-analysis" class="project-btn btn-secondary">💻 GitHub Repo</a>
+                </div>
+            </div>
+            
+            <!-- Project 2: Drug Adverse Events Analysis (OpenFDA) -->
+            <div class="project-card">
+                <h2>💊 Drug Adverse Events Analysis: Ozempic vs Metformin</h2>
+                <p class="description">
+                    Analyzed adverse event reports from the OpenFDA API to compare safety profiles between Ozempic and Metformin, two major 
+                    diabetes medications. Built a robust ETL pipeline that fetches, cleans, and processes adverse event data while handling API 
+                    pagination limits and nested JSON structures. The analysis examines the most commonly reported side effects, severity patterns, 
+                    and patient demographics for both drugs. This project demonstrates skills in API integration, data wrangling with complex nested 
+                    data structures, and healthcare data analysis. Created comprehensive visualizations to communicate findings about how the newer 
+                    drug (Ozempic) compares to the traditional option (Metformin) in terms of patient-reported adverse events.
+                </p>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">OpenFDA API</span>
+                    <span class="tech-tag">Data Cleaning</span>
+                    <span class="tech-tag">Healthcare Analytics</span>
+                    <span class="tech-tag">Data Visualization</span>
+                </div>
+                
+                <div class="project-links">
+                    <a href="FinalProject_Collection_Cleaning_script.ipynb" class="project-btn btn-primary" download>📓 Data Collection Script</a>
+                    <a href="FinalProject_VisualisationScript.ipynb" class="project-btn btn-primary" download>📊 Visualization Script</a>
+                    <a href="https://github.com/rayaanjuvale/openfda-analysis" class="project-btn btn-secondary">💻 GitHub Repo</a>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2024 Rayaan Juvale. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
