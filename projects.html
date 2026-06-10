@@ -38,15 +38,14 @@
       <div class="projects-grid">
 
         <div class="project-card">
-          <span class="badge-wip">In Progress</span>
           <h3>Real Time Anomaly Detection Engine</h3>
           <p class="ptype">Machine Learning Systems</p>
-          <p>A streaming anomaly detection system that ingests live data through Apache Kafka and runs three models in parallel: an Isolation Forest, an LSTM autoencoder in PyTorch, and Z score control charts. Each catches a different kind of anomaly, and a weighted voting layer combines them into one confidence score, which cuts false positives by 41% compared to any single model. A live React and D3.js dashboard streams results over WebSockets, with MLflow tracking experiments. Build in progress, code coming soon.</p>
+          <p>A streaming anomaly detection system that ingests live server metrics through Apache Kafka and runs three models in parallel: an Isolation Forest, an LSTM autoencoder in PyTorch, and Z score control charts. Each catches a different kind of anomaly, and a weighted voting layer combines them into one confidence score. In benchmarks the ensemble beat the best single model on F1 while cutting false positives by over 20%. A live Streamlit dashboard tracks scores in real time, FastAPI serves results, MLflow tracks every run, and the whole stack starts with one docker compose command.</p>
           <div class="tags">
-            <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Kafka</span><span class="tag">FastAPI</span><span class="tag">MLflow</span><span class="tag">GCP</span><span class="tag">React</span>
+            <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Kafka</span><span class="tag">FastAPI</span><span class="tag">MLflow</span><span class="tag">Docker</span><span class="tag">Streamlit</span>
           </div>
           <div class="plinks">
-            <a href="https://github.com/RayaanJuvale" target="_blank" rel="noopener">GitHub (soon) →</a>
+            <a href="https://github.com/RayaanJuvale/anomaly-detection-engine" target="_blank" rel="noopener">View on GitHub →</a>
           </div>
         </div>
 
