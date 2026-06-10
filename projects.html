@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects by Rayaan Juvale: machine learning, data engineering, and analytics work including anomaly detection, credit risk classification, and Reddit ETL pipelines.">
+  <title>Projects | Rayaan Juvale</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">Rayaan Juvale</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="https://github.com/RayaanJuvale" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/rayaanjuvale/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-head">
+    <div class="wrap">
+      <h1>Projects</h1>
+      <p>Work spanning machine learning, data engineering, and applied analytics. Code is on GitHub and Kaggle where available.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <span class="badge-wip">In Progress</span>
+          <h3>Real Time Anomaly Detection Engine</h3>
+          <p class="ptype">Machine Learning Systems</p>
+          <p>A streaming anomaly detection system that ingests live data through Apache Kafka and runs three models in parallel: an Isolation Forest, an LSTM autoencoder in PyTorch, and Z score control charts. Each catches a different kind of anomaly, and a weighted voting layer combines them into one confidence score, which cuts false positives by 41% compared to any single model. A live React and D3.js dashboard streams results over WebSockets, with MLflow tracking experiments. Build in progress, code coming soon.</p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Kafka</span><span class="tag">FastAPI</span><span class="tag">MLflow</span><span class="tag">GCP</span><span class="tag">React</span>
+          </div>
+          <div class="plinks">
+            <a href="https://github.com/RayaanJuvale" target="_blank" rel="noopener">GitHub (soon) →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>German Credit Risk Classification</h3>
+          <p class="ptype">Machine Learning</p>
+          <p>An end to end supervised pipeline on 1,000 credit records with 20 features. I benchmarked Logistic Regression, KNN, Random Forest, and XGBoost with 5 fold cross validated GridSearchCV, optimizing on F1 because the classes are imbalanced. XGBoost won with a test F1 of 0.5946, beating every baseline by up to 14%. Preprocessing runs inside sklearn Pipelines with IQR outlier capping, one hot encoding, and scaling, so nothing leaks between training and evaluation.</p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">Scikit-learn</span><span class="tag">GridSearchCV</span>
+          </div>
+          <div class="plinks">
+            <a href="https://www.kaggle.com/code/rayaanj/final-project" target="_blank" rel="noopener">View on Kaggle →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Reddit Data Engineering & Analysis</h3>
+          <p class="ptype">Data Engineering</p>
+          <p>A distributed ETL pipeline that pulls over 100K Reddit records through web crawling and the Reddit API, cleans and transforms them, and loads everything into PostgreSQL for fast retrieval. The whole stack is containerized with Docker Compose, so it spins up identically on any machine with no manual setup. A Streamlit dashboard sits on top, tracking subreddit trends across the stored data.</p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Streamlit</span><span class="tag">ETL</span>
+          </div>
+          <div class="plinks">
+            <a href="https://github.com/RayaanJuvale/Reddit-Data-Analysis" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Hospital Readmission Risk Scorer</h3>
+          <p class="ptype">Machine Learning · Healthcare</p>
+          <p>A patient readmission risk scoring system built on public CMS hospital data. I engineered more than 30 behavioral and clinical features entirely in SQL, things like prior visit frequency and diagnosis complexity, to predict 30 day readmission risk. The XGBoost classifier reached an AUC of 0.82 on held out data, with a SHAP layer that explains the top risk drivers for each patient. A Streamlit dashboard tracks predicted scores against actual outcomes to keep the model honest after deployment.</p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">XGBoost</span><span class="tag">SHAP</span><span class="tag">PostgreSQL</span><span class="tag">Streamlit</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Gender Pay Disparity Analysis</h3>
+          <p class="ptype">Statistical Analysis</p>
+          <p>A statistical deep dive into gender based pay gaps using a Glassdoor dataset. Multiple regression explained 65.8% of the variance in pay, and the analysis breaks results down by department to show where disparities concentrate. Results are presented in an interactive dashboard alongside a full written report.</p>
+          <div class="tags">
+            <span class="tag">R</span><span class="tag">ggplot2</span><span class="tag">Regression</span><span class="tag">Statistics</span>
+          </div>
+          <div class="plinks">
+            <a href="dashboard.html">Dashboard →</a>
+            <a href="603_final_project_Rayaan.pdf" target="_blank">Full Report (PDF) →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Drug Adverse Events: Ozempic vs Metformin</h3>
+          <p class="ptype">Data Analysis · Healthcare</p>
+          <p>A comparative safety analysis of two diabetes drugs using adverse event reports from the OpenFDA API. The pipeline handles deeply nested JSON from the API, cleans it into a usable table, and compares the safety profiles of both drugs through a series of visualizations.</p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">OpenFDA API</span><span class="tag">Visualization</span>
+          </div>
+          <div class="plinks">
+            <a href="https://github.com/RayaanJuvale/rayaanjuvale.github.io/blob/main/FinalProject_Collection_Cleaning_script.ipynb" target="_blank" rel="noopener">Collection Script →</a>
+            <a href="https://github.com/RayaanJuvale/rayaanjuvale.github.io/blob/main/FinalProject_VisualisationScript.ipynb" target="_blank" rel="noopener">Visualization Script →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Rayaan Juvale · <a href="index.html">Back to Home</a></p>
+  </footer>
+
+</body>
+</html>
